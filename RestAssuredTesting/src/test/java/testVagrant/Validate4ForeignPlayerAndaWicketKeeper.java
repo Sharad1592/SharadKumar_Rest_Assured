@@ -1,8 +1,9 @@
 package testVagrant;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.hamcrest.Matchers;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
@@ -45,7 +46,7 @@ public class Validate4ForeignPlayerAndaWicketKeeper {
 			// validates that there is at least one wicket-keeper
 			if ((role.equals("Wicket-keeper"))) {
 				System.out.println("Wicket-Keeper Player   : "+name+", "+role);
-				Assert.assertEquals(role, "Wicket-keeper");
+				AssertJUnit.assertEquals(role, "Wicket-keeper");
 			}
 		}
 
@@ -60,12 +61,12 @@ public class Validate4ForeignPlayerAndaWicketKeeper {
 		// Status code validation
 		int statuscode = response.getStatusCode();
 		System.out.println("Status Code is : " + statuscode);
-		Assert.assertEquals(statuscode, 200);
+		AssertJUnit.assertEquals(statuscode, 200);
 
 		// Status Line Validation
 		String statusline = response.getStatusLine();
 		System.out.println("Status Line is : " + statusline);
-		Assert.assertEquals(statusline, "HTTP/1.1 200 OK");
+		AssertJUnit.assertEquals(statusline, "HTTP/1.1 200 OK");
 
 		// Validate Response Time
 		long responsetime = response.getTime();
